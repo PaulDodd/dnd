@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-    <div class="form-group">
-    <label>Description</label>
-    <textarea class="form-control" rows="3"></textarea>
-  </div>
-  </body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello World!</title>
+        <link href=react.css media="all" rel="stylesheet" type="text/css"></link>
+        <script>
+            // install babel hooks in the renderer process
+            require('babel-register-es6-react');
+            require('./scripts/main');
+        </script
+    </head>
+    <body>
+        <div id="app"> </div>
+    </body>
 </html>

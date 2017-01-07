@@ -1,11 +1,15 @@
-'use strict';
+require('babel-register-es6-react');
 const electron = require('electron');
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
 const dialog = electron.dialog
 const globalShortcut = electron.globalShortcut
 const path = require('path')
-
+const react = require('react')
+const reactdom = require('react-dom')
+// const React = react.React;
+// const ReactDOM = reactdom.ReactDOM;
+// import Game from 'react_tutorial'
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -50,6 +54,7 @@ app.on('ready', function() {
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
+
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function() {

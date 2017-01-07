@@ -1,8 +1,17 @@
 {
-  "name"    : "dnd",
-  "version" : "0.0.0",
-  "main"    : "main.js",
-  "license" : "MIT",
+  "name": "dnd",
+  "version": "0.0.0",
+  "main": "main.js",
+  "license": "MIT",
   "repository": "https://github.com/PaulDodd/dnd.git",
-  "description" : "An app for character sheets and GM helpers"
+  "description": "An app for character sheets and GM helpers",
+  "scripts": {
+    "start": "node_modules/.bin/electron ."
+  },
+  "dependencies": {
+    "babel-register-es6-react": "0.1.0-beta1",
+    "electron": "^1.4.13",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
 }
