@@ -17,7 +17,7 @@ def _parse(htmldoc):
     for div in divs:
         if div.get_text() == "Core Classes":
             print(div.get_text())
-            links = div.find_all('a'); 
+            links = div.find_all('a');
             for link in links:
                 print(link.get('href'))
 
@@ -27,6 +27,3 @@ def _parse(htmldoc):
 if __name__ == '__main__':
     print("fetching data from: http://www.d20pfsrd.com/classes");
     _parse(_fetch("http://www.d20pfsrd.com/classes"));
-
-
-
