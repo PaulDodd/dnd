@@ -1,7 +1,8 @@
+import hook from 'css-modules-electron/register';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Game from './component.jsx';
+import App from '../components/components.js';
 
 window.onload = function(){
-  ReactDOM.render(<Game />, document.getElementById('app'));
+  ReactDOM.render(<App />, document.getElementById('app'));
 }

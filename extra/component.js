@@ -1,18 +1,32 @@
 'use babel';
 
 import React from 'react';
+// const styles = require('./styles.js')
 
 function Square(props) {
     return (
-        <button className="square" onClick={() => props.onClick()}>
+        <button className="square" onClick={() => props.onClick()} style={props.style} >
             {props.value}
         </button>
     );
 }
-
+// const sqsty = {
+//     background: '#fff',
+//     border: '1px solid #999',
+//     float: 'left',
+//     fontSize: 24,
+//     fontWeight: 'bold',
+//     lineHeight: 34,
+//     height: 34,
+//     marginRight: -1,
+//     marginTop: -1,
+//     padding: 0,
+//     textAlign: 'center',
+//     width: 34
+// }
 class Board extends React.Component {
     renderSquare(i) {
-        return <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />;
+        return <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} style={{color: 'blue'}} />;
     }
     render() {
         return (
@@ -61,7 +75,7 @@ export default class Game extends React.Component {
                 squares: squares
                 }]),
             xIsNext: !this.state.xIsNext,
-            stepNumber: history.length  
+            stepNumber: history.length
         });
     }
 
@@ -115,6 +129,10 @@ export default class Game extends React.Component {
         );
     }
 }
+
+// Board.styles = {
+//
+// }
 
 function calculateWinner(squares) {
     const lines = [
