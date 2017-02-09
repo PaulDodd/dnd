@@ -8,7 +8,7 @@ export default class App extends React.Component {
         return (
             <div className="App">
               <div className="heading">
-              <CustomTextInput />
+              <CustomTextInput placeholder="Character Name" />
               </div>
               <div className="sidebar">
               </div>
