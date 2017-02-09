@@ -7,12 +7,14 @@ let cx = classNames.bind(styles);
 class CustomTextInput extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {value: ''};
     this.focus = this.focus.bind(this);
     this.default = props.default
     this.textInput = undefined
     this.focus = this.focus.bind(this);
     this._handleFoucus = this._handleFoucus.bind(this);
     this._handleBlur = this._handleBlur.bind(this);
+    this._handleChange = this._handleChange.bind(this);
   }
 
   dummy(){
@@ -25,19 +27,24 @@ class CustomTextInput extends React.Component {
   }
   _handleFoucus() {
       console.log("focusing")
-      console.log(this.dummy())
+      console.log(this.state.value)
       if(this.textInput === null){
         return
       }
-      console.log(this.textInput)
+    //   console.log(this.textInput)
     //   this.textInput.focus();
   }
   _handleBlur() {
-      console.log("blurring")
-    //   console.log(this.textInput)
+      console.log("Setting value")
+      console.log(this.textInput.value)
+      this.setState({"value":this.textInput.value})
   }
   _theRef(input){
       this.textInput = input;
+  }
+  _handleChange(event){
+    console.log(event.target.value)
+    this.setState({"value":event.target.value})
   }
   render() {
     // Use the `ref` callback to store a reference to the text input DOM
@@ -46,14 +53,15 @@ class CustomTextInput extends React.Component {
     return (
       <div className={styles.container}>
         <input
+          className={styles.base}
           type="text"
           className={ cn }
-          name="firstname"
-          title="First Name"
-          placeholder="The placeholder"
+        //   value={this.state.value}
+          placeholder={ this.props.placeholder }
           ref={(input) => { this.textInput = input; }}
           onFocus={ this._handleFoucus }
           onBlur={ this._handleBlur }
+        //   onChange={ this._handleChange }
         />
         <input
           type="button"
