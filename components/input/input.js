@@ -7,7 +7,7 @@ let cx = classNames.bind(styles);
 class CustomTextInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {value: '', focused: false};
     this.focus = this.focus.bind(this);
     this.default = props.default
     this.textInput = undefined
@@ -26,8 +26,8 @@ class CustomTextInput extends React.Component {
     // this.textInput.focus();
   }
   _handleFoucus() {
-      console.log("focusing")
-      console.log(this.state.value)
+      console.log("focusing " + this.state.focused)
+      this.setState({"focused" : true})
       if(this.textInput === null){
         return
       }
@@ -35,13 +35,17 @@ class CustomTextInput extends React.Component {
     //   this.textInput.focus();
   }
   _handleBlur() {
-      console.log("Setting value")
-      console.log(this.textInput.value)
-      this.setState({"value":this.textInput.value})
+      console.log("Setting value " + this.state.focused)
+      if(!this.textInput){
+        this.setState({"focused" : false})
+        return
+      }
+      console.log("Setting value " + this.textInput.value)
+      this.setState({"value":this.textInput.value, "focused" : false})
   }
-  _theRef(input){
-      this.textInput = input;
-  }
+  // _theRef(input){
+  //     this.textInput = input;
+  // }
   _handleChange(event){
     console.log(event.target.value)
     this.setState({"value":event.target.value})
@@ -63,11 +67,11 @@ class CustomTextInput extends React.Component {
           onBlur={ this._handleBlur }
         //   onChange={ this._handleChange }
         />
-        <input
+{/*        <input
           type="button"
           value="Focus the text input"
           onClick={ this._handleFoucus }
-        />
+        />*/}
       </div>
     );
   }
